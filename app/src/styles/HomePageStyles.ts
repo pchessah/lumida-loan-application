@@ -30,11 +30,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '85%',
     marginBottom: width > 768 ? 0 : 20, // Space between columns on mobile
   },
   title: {
     fontSize: width > 768 ? 50 : 32, // 50px for desktop, smaller for mobile
-    fontWeight: '500', // Changed font weight to 500
+    fontWeight: '500',
     marginBottom: 10,
     color: '#333',
     textAlign: 'center',
@@ -56,8 +57,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   image: {
-    width: width > 768 ? '100%' : '80%', // Full width on desktop, smaller on mobile
-    height: width > 768 ? height * 0.4 : 200, // Adjust height for mobile
+    width: width > 768 ? 400 : 200,
+    height: width > 768 ? 400 : 200, 
     borderRadius: 10,
   },
   bottomRow: {

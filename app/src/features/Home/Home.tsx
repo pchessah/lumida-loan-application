@@ -45,7 +45,6 @@ const HomePage = () => {
           <Image
             source={require("../../../../assets/images/home-img.svg")}
             style={styles.image}
-            resizeMode="cover"
           />
         </View>
         <View style={styles.leftColumn}>

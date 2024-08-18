@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
   },
   submitButtonDisabled: {
     backgroundColor: '#a9a9a9', 
+    paddingVertical: 15,
+    borderRadius: 5,
+    alignItems: 'center',
   },
   submitButtonText: {
     color: '#fff',

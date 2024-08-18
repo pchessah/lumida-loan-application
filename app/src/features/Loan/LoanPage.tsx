@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import styles from '../../styles/LoanPageStyles';
 import Toast from 'react-native-toast-message';
 import { useNavigationHelper } from '../../navigation/routing';
@@ -10,6 +10,7 @@ const LoanPage = () => {
   const [loanAmount, setLoanAmount] = useState('');
   const [loanPurpose, setLoanPurpose] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { navigateToLoanListPage } = useNavigationHelper();
 
@@ -27,6 +28,8 @@ const LoanPage = () => {
       Alert.alert('Error', 'All fields are required.');
       return;
     }
+
+    setLoading(true); // Start loading
 
     try {
       const response = await fetch('http://localhost:5000/apply-loan', { 
@@ -64,6 +67,8 @@ const LoanPage = () => {
         text1: 'Error',
         text2: 'An error occurred while submitting the application.',
       });
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -110,13 +115,17 @@ const LoanPage = () => {
           onChangeText={setLoanPurpose}
         />
 
-        <TouchableOpacity
-          style={isFormValid ? styles.submitButton : styles.submitButtonDisabled}
-          onPress={handleSubmit}
-          disabled={!isFormValid}
-        >
-          <Text style={styles.submitButtonText}>Submit Application</Text>
-        </TouchableOpacity>
+        {loading ? (
+          <ActivityIndicator size="large" color="#30c2e3" />
+        ) : (
+          <TouchableOpacity
+            style={isFormValid ? styles.submitButton : styles.submitButtonDisabled}
+            onPress={handleSubmit}
+            disabled={!isFormValid}
+          >
+            <Text style={styles.submitButtonText}>Submit Application</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
