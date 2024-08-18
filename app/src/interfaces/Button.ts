@@ -7,5 +7,5 @@ export interface ButtonProps {
   textColor?: string;
   style?: ViewStyle;
   textStyle?: TextStyle;
-  outlined?: boolean; // New prop for handling outlined button
+  outlined?: boolean; 
 }
