@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   searchInput: {
-    width: '80%', // Adjusted for consistent width
+    width: '80%',
     height: 40,
     borderColor: '#ddd',
     borderWidth: 1,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    width: '80%', // Match the search bar width
+    width: '80%', 
     marginBottom: 20,
   },
   cardContent: {
@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 5,
     borderWidth: 1,
-    borderColor: '#ddd', // Add border for modern look
+    borderColor: '#ddd',
   },
   cardTextContainer: {
     flex: 1,
-    marginRight: 10, // Space between text and arrow
+    marginRight: 10,
   },
   cardTitle: {
     fontSize: 18,

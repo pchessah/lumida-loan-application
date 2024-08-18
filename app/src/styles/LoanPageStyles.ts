@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   inputWithExtraSpace: {
-    marginBottom: 30, // Extra space for the last input
+    marginBottom: 30, 
   },
   submitButton: {
     backgroundColor: '#30c2e3',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   submitButtonDisabled: {
-    backgroundColor: '#a9a9a9', // Gray color for the disabled button
+    backgroundColor: '#a9a9a9', 
   },
   submitButtonText: {
     color: '#fff',

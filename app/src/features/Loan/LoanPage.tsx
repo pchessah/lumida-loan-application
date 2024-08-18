@@ -13,7 +13,6 @@ const LoanPage = () => {
 
   const { navigateToLoanListPage } = useNavigationHelper();
 
-  // Update isFormValid state whenever the input values change
   useEffect(() => {
     setIsFormValid(
       fullName.trim() !== '' &&
