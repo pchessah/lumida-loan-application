@@ -75,16 +75,17 @@ Ensure you have the following installed:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/your-repository/numida-loan-application.git
-   cd numida-loan-application
+   cd numida-loan-application```
 2. **Install Dependencies**:
-npm install
-# or
-yarn install
-
-3. **Install Dependencies**:
-npm install
-# or
-yarn install
+   ```npm install```
+3. **Start Application**:
+   ```npx expo start```
+4. **Start Application BE**:
+     1. Open new terminal and enter
+     ```cd server```
+     2. Build and run the server `docker compose up --build`
+     3. Confirm your application is available at http://localhost:5000
+  
 
 ## Application Structure
 
