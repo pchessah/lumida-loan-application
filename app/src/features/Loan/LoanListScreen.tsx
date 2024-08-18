@@ -17,7 +17,7 @@ const LoanListScreen = () => {
   useFocusEffect(
     useCallback(() => {
       refetch();
-    }, [])
+    }, [refetch])
   );
 
   const handleCardPress = (loanId: number) => {
@@ -27,7 +27,7 @@ const LoanListScreen = () => {
   if (loading) {
     return (
       <View style={styles.loaderContainer}>
-        <ActivityIndicator size="large" color="#30c2e3" />
+        <ActivityIndicator size="large" color="#30c2e3" testID="loading-indicator" />
       </View>
     );
   }
