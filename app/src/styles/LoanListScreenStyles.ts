@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   searchInput: {
-    width: '80%',
+    width: '80%', // Adjusted for consistent width
     height: 40,
     borderColor: '#ddd',
     borderWidth: 1,
@@ -27,19 +27,39 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   cardsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    width: '100%',
+    flexDirection: 'column',
+    width: '90vw',
+    alignItems: 'center',
   },
   card: {
-    width: width > 500 ? '40%' : '80%',
+    width: '80%', // Match the search bar width
     marginBottom: 20,
+  },
+  cardContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 15,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+    borderWidth: 1,
+    borderColor: '#ddd', // Add border for modern look
+  },
+  cardTextContainer: {
+    flex: 1,
+    marginRight: 10, // Space between text and arrow
   },
   cardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 5,
+  },
+  arrowIcon: {
+    marginLeft: 10,
   },
   loaderContainer: {
     flex: 1,

@@ -1,24 +1,22 @@
-import React, { useCallback } from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image, ActivityIndicator, ScrollView } from "react-native";
 import Button from "../../elements/Button";
 import Card from "../../elements/Card";
 import styles from "../../styles/HomePageStyles";
 import { useNavigationHelper } from "../../navigation/routing";
-import { GET_LOAN_PRODUCTS } from "../graphql/queries/GetLoanProducts";
-import { useQuery } from "@apollo/client";
-import { useFocusEffect } from "@react-navigation/native";
+
 import { MaterialIcons } from "@expo/vector-icons";
-import { LoanProduct } from "../../interfaces/Loan";
+import { useAppDispatch, useAppSelector } from "../../state/hook";
+import { fetchLoanProducts } from "../../state/loanApplicationSlice";
 
 const HomePage = () => {
   const { navigateToLoanPage } = useNavigationHelper();
-  const { loading, error, data, refetch } = useQuery<{ loanProducts: LoanProduct[] }>(GET_LOAN_PRODUCTS);
+  const dispatch = useAppDispatch();
+  const { products, loading, error } = useAppSelector((state) => state.loanApplication);
 
-  useFocusEffect(
-    useCallback(() => {
-      refetch();
-    }, [])
-  );
+  useEffect(() => {
+    dispatch(fetchLoanProducts());
+  }, [dispatch]);
 
   if (loading) {
     return (
@@ -33,13 +31,11 @@ const HomePage = () => {
       <View style={styles.errorContainer}>
         <Card style={styles.errorCard}>
           <MaterialIcons name="error-outline" size={48} color="red" />
-          <Text style={styles.errorText}>Error: {error.message}</Text>
+          <Text style={styles.errorText}>Error: {error}</Text>
         </Card>
       </View>
     );
   }
-
-  const loanProducts = data?.loanProducts || [];
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -68,7 +64,7 @@ const HomePage = () => {
 
       {/* Bottom Row */}
       <View style={styles.bottomRow}>
-        {loanProducts.map((product) => (
+        {products.map((product) => (
           <Card key={product.id} style={styles.card}>
             <Text style={styles.cardTitle}>{product.name}</Text>
             <Text style={styles.cardText}>Maximum Loan Amount: ${product.maximumAmount}</Text>

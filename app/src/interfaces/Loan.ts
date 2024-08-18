@@ -18,3 +18,11 @@ export interface LoanApplicationObject {
   loanAmount: number;
   loanPurpose: string;
 }
+
+
+export interface LoanApplicationState {
+  products: LoanProduct[];
+  loading: boolean;
+  error: string | null;
+}
+

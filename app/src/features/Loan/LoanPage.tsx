@@ -1,5 +1,4 @@
-// src/features/Loan/LoanPage.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import styles from '../../styles/LoanPageStyles';
 import Toast from 'react-native-toast-message';
@@ -14,6 +13,16 @@ const LoanPage = () => {
 
   const { navigateToLoanListPage } = useNavigationHelper();
 
+  // Update isFormValid state whenever the input values change
+  useEffect(() => {
+    setIsFormValid(
+      fullName.trim() !== '' &&
+      email.trim() !== '' &&
+      loanAmount.trim() !== '' &&
+      loanPurpose.trim() !== ''
+    );
+  }, [fullName, email, loanAmount, loanPurpose]);
+
   const handleSubmit = async () => {
     if (!isFormValid) {
       Alert.alert('Error', 'All fields are required.');
@@ -21,7 +30,7 @@ const LoanPage = () => {
     }
 
     try {
-      const response = await fetch('http://192.168.0.100:5000/apply-loan', {  // Replace with your IP address
+      const response = await fetch('http://localhost:5000/apply-loan', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

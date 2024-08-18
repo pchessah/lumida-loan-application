@@ -1,18 +1,15 @@
-import { StyleSheet, Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f2fcfb',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    backgroundColor: '#f2fcfb',
   },
   card: {
+    width: '80%',
     backgroundColor: '#fff',
-    width: width > 500 ? '40%' : '85%', 
     borderRadius: 10,
     padding: 20,
     shadowColor: '#000',
@@ -29,33 +26,28 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 10,
     color: '#333',
   },
   input: {
-    height: 50,
-    borderColor: '#ddd',
+    width: '100%',
+    padding: 10,
     borderWidth: 1,
+    borderColor: '#ccc',
     borderRadius: 5,
-    paddingHorizontal: 10,
-    marginBottom: 25,
+    marginBottom: 15,
   },
   inputWithExtraSpace: {
-    marginBottom: 40,
+    marginBottom: 30, // Extra space for the last input
   },
   submitButton: {
     backgroundColor: '#30c2e3',
-    paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 5,
     alignItems: 'center',
   },
   submitButtonDisabled: {
-    backgroundColor: '#a0c4c7', // Lighter color for disabled state
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    borderRadius: 5,
-    alignItems: 'center',
+    backgroundColor: '#a9a9a9', // Gray color for the disabled button
   },
   submitButtonText: {
     color: '#fff',

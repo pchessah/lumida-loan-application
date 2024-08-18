@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loanReducer from './loanSlice';
+import loanApplicationSlice from './loanApplicationSlice';
+
 
 export const store = configureStore({
   reducer: {
-    loan: loanReducer,
+    loanApplication: loanApplicationSlice,
   },
 });
 
+// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

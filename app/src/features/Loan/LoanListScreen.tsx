@@ -20,6 +20,10 @@ const LoanListScreen = () => {
     }, [])
   );
 
+  const handleCardPress = (loanId: number) => {
+    console.log(`Navigate to loan detail page for loan ID: ${loanId}`);
+  };
+
   if (loading) {
     return (
       <View style={styles.loaderContainer}>
@@ -70,13 +74,22 @@ const LoanListScreen = () => {
       />
 
       <ScrollView contentContainerStyle={styles.cardsContainer}>
-        {filteredLoans.map((loan: any) => (
-          <Card key={loan.id} style={styles.card}>
-            <Text style={styles.cardTitle}>{loan.fullName}</Text>
-            <Text>Email: {loan.email}</Text>
-            <Text>Amount: ${loan.loanAmount}</Text>
-            <Text>Purpose: {loan.loanPurpose}</Text>
-          </Card>
+        {filteredLoans.map((loan) => (
+          <TouchableOpacity 
+            key={loan.id} 
+            style={styles.card} 
+            onPress={() => handleCardPress(loan.id)}
+          >
+            <Card style={styles.cardContent}>
+              <View style={styles.cardTextContainer}>
+                <Text style={styles.cardTitle}>{loan.fullName}</Text>
+                <Text>Email: {loan.email}</Text>
+                <Text>Amount: ${loan.loanAmount}</Text>
+                <Text>Purpose: {loan.loanPurpose}</Text>
+              </View>
+              <MaterialIcons name="arrow-forward" size={24} color="#30c2e3" style={styles.arrowIcon} />
+            </Card>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
