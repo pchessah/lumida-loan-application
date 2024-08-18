@@ -4,16 +4,44 @@
 
 This project is a simple fintech mobile application developed as part of a frontend engineering assessment. The primary objective of this application is to allow users to apply for a loan. The application demonstrates skills in frontend and mobile development, code structure, type safety, and the use of contemporary frameworks and libraries like React Native, Redux Toolkit, and Apollo Client for GraphQL.
 
-## What Are We Looking For in an Engineer?
+## Implementation Overview
 
-We are seeking an experienced frontend engineer who is well-versed in the modern Native landscape and can lead the evolution of our codebase. The qualities we value include:
+This React Native application provides a simple and intuitive user interface for applying for loans and managing loan applications. The implementation includes the following key features:
 
-- Strong frontend and mobile development skills.
-- Ability to structure well-typed, readable, and reusable code.
-- Familiarity with contemporary frameworks and libraries.
-- Adherence to design principles to write extendable code.
+### 1. **Home Page**
+   - Displays a dashboard with an overview of available loan products.
+   - Fetches loan products from a GraphQL API using Apollo Client and Redux Toolkit for state management.
+   - Provides navigation to the loan application form and loan list pages.
 
----
+### 2. **Loan Application Page**
+   - Presents a form for users to apply for a loan.
+   - Implements form validation to ensure that all fields are filled out before submission.
+   - Submits the loan application to a REST API and provides user feedback through toast notifications.
+   - Handles loading states during form submission to enhance the user experience.
+
+### 3. **Loan List Page**
+   - Displays a list of all submitted loan applications.
+   - Includes a search functionality to filter loan applications by name or email.
+   - Fetches loan applications from a GraphQL API and handles loading and error states.
+   - Provides navigation to detailed views of individual loan applications (placeholder for future implementation).
+
+### 4. **Navigation**
+   - Uses React Navigation to manage navigation across different screens in the application.
+   - Implements responsive navigation with a drawer menu on mobile devices and a custom navbar on desktop devices.
+   - Includes buttons in the navbar for navigating to key pages like the loan list and loan application form.
+
+### 5. **State Management**
+   - Utilizes Redux Toolkit for global state management, particularly for handling loan product data.
+   - Custom hooks are implemented for dispatching actions and selecting state in a type-safe manner using TypeScript.
+
+### 6. **UI/UX Design**
+   - Follows modern UI/UX principles with responsive design to ensure a seamless experience on both mobile and desktop devices.
+   - Implements reusable components like buttons and cards to maintain a consistent look and feel throughout the app.
+
+### 7. **Error Handling and Feedback**
+   - Provides clear error messages and feedback to users through toast notifications and in-app messaging.
+   - Handles loading states effectively to keep users informed while data is being fetched or submitted.
+
 
 ## Project Overview
 
